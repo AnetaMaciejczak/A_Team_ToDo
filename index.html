@@ -26,60 +26,65 @@
             </ul>
             <button class="main-panel-bin">Kosz</button>
         </div>
+
+        <!--wpisuwanie nowych zadań-->
         <div class="main-form">
-            <form action="" method="">
-                <label for="title"></label>
+            <div>
                 <input type="text" name="title" id="title" placeholder="Tytuł" class="main-form-left">
-                <label for="date"></label>
-                <input type="date" name="data" id="date" placeholder="dd-mm-rr" class="main-form-left">
-                <label for="priority"></label>
-                <input type="number" name="priority" id="priority" placeholder="1" class="main-form-left">
-                <label for="description"></label>
-                <input type="text" name="description" id="description" placeholder="lorem ipsum"
+                <input type="date" name="data" id="date" placeholder="Data" class="main-form-left">
+                <input type="number" name="priority" id="priority" placeholder="Priorytet" class="main-form-left">
+                <input type="text" name="description" id="description" placeholder="Szczegóły zadania"
                        class="main-form-right">
-                <input type="submit" value="Add" class="main-form-right">
-            </form>
+                <p>
+                    <button class="main-form-right" id="main-form-btn-add">Add</button>
+                </p>
+
+            </div>
         </div>
 
+        <!--Lisat zadań-->
         <div class="main-tusks">
-            <ul>
-                <li>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <div class="input-group-text">
-                                <input type="checkbox" aria-label="Checkbox for following text input">
-                            </div>
-                        </div>
-                        <input type="text" class="form-control" aria-label="Text input with checkbox">
-                        <button class="main-tusks-bin">Kosz</button>
-                    </div>
-                </li>
+            <ul class="main-tusks-list">
+                <!--<li>-->
+                    <!--<div class="input-group mb-3">-->
+                        <!--<div class="input-group-prepend">-->
+                            <!--<div class="input-group-text">-->
+                                <!--<input type="checkbox" aria-label="Checkbox for following text input">-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<input type="text" class="form-control" aria-label="Text input with checkbox">-->
+                        <!--<button class="main-tusks-bin">Kosz</button>-->
+                    <!--</div>-->
+                <!--</li>-->
 
-                <li>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <div class="input-group-text">
-                                <input type="checkbox" aria-label="Checkbox for following text input">
-                            </div>
-                        </div>
-                        <input type="text" class="form-control" aria-label="Text input with checkbox">
-                        <button class="main-tusks-bin">Kosz</button>
-                    </div>
-                </li>
+                <!--<li>-->
+                    <!--<div class="input-group mb-3">-->
+                        <!--<div class="input-group-prepend">-->
+                            <!--<div class="input-group-text">-->
+                                <!--<input type="checkbox" aria-label="Checkbox for following text input">-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<input type="text" class="form-control" aria-label="Text input with checkbox">-->
+                        <!--<button class="main-tusks-bin">Kosz</button>-->
+                    <!--</div>-->
+                <!--</li>-->
             </ul>
         </div>
     </div>
 </div>
 
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
-        integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
-        crossorigin="anonymous"></script>
+<!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"-->
+        <!--integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"-->
+        <!--crossorigin="anonymous"></script>-->
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"-->
+        <!--integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"-->
+        <!--crossorigin="anonymous"></script>-->
+<!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"-->
+        <!--integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"-->
+        <!--crossorigin="anonymous"></script>-->
+<script src="js/app.js" type="text/javascript"></script>
+
+
 </body>
 </html>

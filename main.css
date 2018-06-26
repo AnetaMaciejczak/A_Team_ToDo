@@ -83,3 +83,11 @@
     }
 
 }
+
+
+/*stylowanie nowo pojawiającysh się zadań*/
+.new-task-btn-completed {
+    border: 1px solid red;
+    width: 20px;
+    height: 20px;
+}
