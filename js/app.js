@@ -71,5 +71,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
     });
 
+    /* ---- ukrywanie i chowanie elementu main-form ----- */
+
+    /*łapię formularz*/
+    var mainForm= document.querySelector(".main-form");
+
+
+    /*łapię przycisk +Add po wcześniejszym dodaniu mu ID mainAdd*/
+    var mainAdd = document.getElementById("mainAdd");
+
+    /*dodaję event, który chowa i wyświetla formularz*/
+    mainAdd.addEventListener("click", function () {
+        if (mainForm.style.display === "none") {
+            mainForm.style.display = "flex";
+        } else {
+            mainForm.style.display = "none";
+        }
+    });
+
+
+
+
+
 
 });
