@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
         /*dodaję do buttona deleted event*/
         newTaskDBtnDeleted.addEventListener("click", function () {
             taskList.removeChild(newTaskLi);
-        }),
+        });
 
 
         /*zeruję wartość inputu po dodaniu elementu*/
