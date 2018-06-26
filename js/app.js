@@ -83,10 +83,15 @@ document.addEventListener("DOMContentLoaded", function () {
     /*dodaję event, który chowa i wyświetla formularz*/
     mainAdd.addEventListener("click", function () {
         if (mainForm.style.display === "none") {
-            mainForm.style.display = "block";
+            mainForm.style.display = "flex";
         } else {
             mainForm.style.display = "none";
         }
     });
-    
+
+
+
+
+
+
 });

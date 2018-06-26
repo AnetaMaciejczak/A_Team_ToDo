@@ -29,17 +29,22 @@
 
         <!--wpisuwanie nowych zadań-->
         <div class="main-form">
-            <div>
-                <input type="text" name="title" id="title" placeholder="Tytuł" class="main-form-left">
-                <input type="date" name="data" id="date" placeholder="Data" class="main-form-left">
-                <input type="number" name="priority" id="priority" placeholder="Priorytet" class="main-form-left">
-                <input type="text" name="description" id="description" placeholder="Szczegóły zadania"
-                       class="main-form-right">
-                <p>
-                    <button class="main-form-right" id="main-form-btn-add">Add</button>
-                </p>
 
+            <div class="main-form-left">
+                <input type="text" name="title" id="title" placeholder="Tytuł">
+                <div class="main-form-row">
+                    <input type="date" name="data" id="date" placeholder="Data">
+                    <input type="number" name="priority" id="priority" placeholder="Priorytet">
+                </div>
             </div>
+
+            <div class="main-form-right">
+                <input type="text" name="description" id="description" placeholder="Szczegóły zadania">
+                <p>
+                    <button id="main-form-btn-add">Add</button>
+                </p>
+            </div>
+
         </div>
 
         <!--Lisat zadań-->
