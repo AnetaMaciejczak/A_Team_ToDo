@@ -131,54 +131,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
             saveTasks();
 
-            // console.log(tasks);
-
-            /* -------------------------------------------------- */
-
-
-            /*tworzę nowe li i poszczególne elementy*/
-            // var newTaskLi = document.createElement("li");
-            // var newTaskBtnComplete = document.createElement("input");
-            // newTaskBtnComplete.setAttribute("type", "checkbox");
-            // var newTaskTitle = document.createElement("span");
-            // var newTaskDate = document.createElement("span");
-            // var newTaskPriority = document.createElement("span");
-            // var newTaskDescription = document.createElement("p");
-            // var newTaskDBtnDeleted = document.createElement("button");
-            //
-            // /*dodaję nowym elementom klasy, aby można je było łatwo stylować*/
-            //
-            // newTaskLi.classList.add("new-task-li");
-            // newTaskBtnComplete.classList.add("new-task-btn-completed");
-            // newTaskTitle.classList.add("new-task-title");
-            // newTaskDate.classList.add("new-task-date");
-            // newTaskPriority.classList.add("new-task-priority");
-            // newTaskDescription.classList.add("new-task-description");
-            // newTaskDBtnDeleted.classList.add("new-task-btn-deleted");
-            //
-            //
-            // /*dodaję teksty wewnętrzne do poszczególnych elentów*/
-            // newTaskTitle.innerText = title.value;
-            // newTaskDate.innerText = date.value;
-            // newTaskPriority.innerText = priority.value;
-            // newTaskDescription.innerText = description.value;
-            // newTaskDBtnDeleted.innerText = "deleted";
-            //
-            // /*dodaję wszystkie elementy do nowego li*/
-            // newTaskLi.appendChild(newTaskBtnComplete);
-            // newTaskLi.appendChild(newTaskTitle);
-            // newTaskLi.appendChild(newTaskDate);
-            // newTaskLi.appendChild(newTaskPriority);
-            // newTaskLi.appendChild(newTaskDBtnDeleted);
-            // newTaskLi.appendChild(newTaskDescription);
-            //
-            // /*dodaję nowe li do listy zadań*/
-            // taskList.appendChild(newTaskLi);
-            //
-            // /*dodaję do buttona deleted event*/
-            // newTaskDBtnDeleted.addEventListener("click", function () {
-            //     taskList.removeChild(newTaskLi);
-            // });
 
             var formObj = {
                 title: title.value,
@@ -186,7 +138,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 priority: priority.value,
                 description: description.value,
 
-            }
+            };
 
             createElement(formObj);
 
@@ -195,6 +147,7 @@ document.addEventListener("DOMContentLoaded", function () {
             date.value = "";
             priority.value = "";
             description.value = "";
+            mainForm.style.display = "none";
 
         });
 
@@ -204,18 +157,19 @@ document.addEventListener("DOMContentLoaded", function () {
         /*łapię formularz*/
         var mainForm = document.querySelector(".main-form");
 
-
         /*łapię przycisk +Add po wcześniejszym dodaniu mu ID mainAdd*/
         var mainAdd = document.getElementById("mainAdd");
 
         /*dodaję event, który chowa i wyświetla formularz*/
-        mainAdd.addEventListener("click", function () {
-            if (mainForm.style.display === "none") {
-                mainForm.style.display = "flex";
-            } else {
-                mainForm.style.display = "none";
-            }
-        });
 
+    mainAdd.addEventListener("click", function () {
+        if (mainForm.style.display === "flex") {
+            mainForm.style.display = "none";
+        } else {
+            mainForm.style.display = "flex";
+        }
 
     });
+
+
+});
