@@ -7,7 +7,7 @@ body {
     background:
             linear-gradient(black 0%, grey 100%),
             linear-gradient(to right, black 0%, grey 100%),
-            url('./images/robot.jpg');
+            url('./images/smallrobot.jpg');
     background-blend-mode: screen, difference, darken;
     width: 100%;
     background-repeat: no-repeat;
