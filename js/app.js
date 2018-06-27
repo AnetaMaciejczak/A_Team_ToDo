@@ -3,6 +3,9 @@ document.addEventListener("DOMContentLoaded", function () {
     /*łapię button dodający zadanie*/
     var add = document.querySelector("#main-form-btn-add");
 
+    /*dodać pętle po obiekcie local storage i wyświelać całą zawartość*/
+
+
     /*nadaję event na button dodający zadanie*/
     add.addEventListener("click", function () {
 
@@ -19,6 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
         var taskList = document.querySelector(".main-tusks-list");
 
         /*tworzę nowe li i poszczególne elementy*/
+        /*obiekt li*/
         var newTaskLi = document.createElement("li");
         var newTaskBtnComplete = document.createElement("input");
         newTaskBtnComplete.setAttribute("type", "checkbox");
@@ -56,10 +60,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
         /*dodaję nowe li do listy zadań*/
         taskList.appendChild(newTaskLi);
+        console.log(newTaskLi);
+        // var counter = 1;
+        // localStorage(counter, newTaskLi);
+        // counter+=;
+        /*dodać do local storage*/
 
         /*dodaję do buttona deleted event*/
         newTaskDBtnDeleted.addEventListener("click", function () {
             taskList.removeChild(newTaskLi);
+            /*dodać removowe local storage*/
         });
 
 
