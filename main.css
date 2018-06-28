@@ -10,8 +10,8 @@ body {
             /*linear-gradient(to right, black 0%, grey 100%),*/
             /*url('./images/smallrobot.jpg');*/
     background-image: url(images/unsplash.jpg);
-    background-color: #d3d3d3;
-    background-blend-mode: overlay;
+    /*background-color: #d3d3d3;*/
+    /*background-blend-mode: overlay;*/
     width: 100%;
     background-repeat: no-repeat;
     background-size: cover;
@@ -27,6 +27,7 @@ body {
         opacity: 1}
 }
 
+/*wersja mobile*/
 @media (max-width: 480px) {
     .main-container {
         display: flex;
@@ -63,7 +64,9 @@ body {
         margin: 2%;
         border-radius: 10px;
     }
-
+    .main-panel-check-tooltip-check, .main-panel-tooltip-date, .main-panel-tooltip-priority, .main-panel-tooltip-bin{
+        display: none;
+    }
     .main-panel-change-direction {
         writing-mode: vertical-rl;
         text-orientation: sideways;
@@ -103,6 +106,7 @@ body {
     }
 }
 
+/*wersja desktop*/
 @media (min-width: 481px) {
     .main-container {
         display: flex;
@@ -158,6 +162,50 @@ body {
         color: #717171;
         border-radius: 10px;
         margin-bottom: 5px;
+    }
+    .main-panel-check, .main-panel-sort-date, .main-panel-sort-priority, .main-panel-bin{
+        position: relative;
+    }
+    .main-panel-check:hover .main-panel-check-tooltip-check{
+        visibility: visible;
+    }
+
+    .main-panel-sort-date:hover .main-panel-tooltip-date{
+        visibility: visible;
+    }
+
+    .main-panel-sort-priority:hover .main-panel-tooltip-priority{
+        visibility: visible;
+    }
+
+    .main-panel-bin:hover .main-panel-tooltip-bin{
+        visibility: visible;
+    }
+    .main-panel-check-tooltip-check, .main-panel-tooltip-date, .main-panel-tooltip-priority, .main-panel-tooltip-bin{
+        visibility: hidden;
+        position: absolute;
+        width: 130px;
+        background-color: rgba(74, 111, 114, 0.6);
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px 0;
+        margin-top: 5px;
+        font-size: 18px;
+        left: -55px;
+        top: 35px;
+    }
+    .main-panel-check-tooltip-check:before, .main-panel-tooltip-date:before, .main-panel-tooltip-priority:before, .main-panel-tooltip-bin:before{
+        content: '';
+        display: block;
+        width: 0;
+        height: 0;
+        border: 10px solid rgba(74, 111, 114, 0);
+        border-bottom-color: rgba(74, 111, 114, 0.6);
+        position: absolute;
+        transform: translate(-50%, 0);
+        left: 63px;
+        top: -20px;
     }
 
     .main-panel-list {
