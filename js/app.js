@@ -147,7 +147,7 @@ document.addEventListener("DOMContentLoaded", function () {
             date.value = "";
             priority.value = "";
             description.value = "";
-            mainForm.style.display = "none";
+
 
         });
 
