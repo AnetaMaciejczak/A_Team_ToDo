@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         function createElement(taskObj) {
 
-            console.log(taskObj)
+            console.log(taskObj);
             /*tworzę nowe li i poszczególne elementy*/
             /*obiekt li*/
             var newTaskLi = document.createElement("li");
@@ -86,16 +86,71 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         /*nadaję event na button dodający zadanie*/
-        add.addEventListener("click", function () {
-
-            /*ustawiam flagę walidacji - do późniejszego wykorzystania*/
-            var ok = true;
+        add.addEventListener("click", function() {
 
             /*łapię wszystkie elementy*/
             var title = document.querySelector("#title");
             var date = document.querySelector("#date");
             var priority = document.querySelector("#priority");
             var description = document.querySelector("#description");
+
+
+            /* walidacja danych */
+
+            var errorMessage = document.querySelector(".error-message");
+            var errorMessage2 = document.querySelector(".error-message2");
+            var ul = document.createElement("ul");
+
+            /*ustawiam flagę walidacji - do późniejszego wykorzystania*/
+            var ok = true;
+
+            // sprawdzenie tytulu (czy posiada więcej niż 1 i mniej niż 50 znaków)
+
+            if (title.value.length === 0) {
+                ok = false;
+                var msg = document.createElement("li");
+                msg.innerText = "Wprowadź tytuł";
+                ul.appendChild(msg);
+            }
+
+            if (title.value.length >= 50) {
+                ok = false;
+                var msg = document.createElement("li");
+                msg.innerText = "Tytuł jest za długi";
+                ul.appendChild(msg);
+            }
+
+            // sprawdzenie daty
+
+            if (date.value === "") {
+                ok = false;
+                var msg = document.createElement("li");
+                msg.innerText = "Uzupełnij datę";
+                ul.appendChild(msg);
+            }
+
+            // sprawdzenie priorytetu
+
+            if (priority.value === "") {
+                ok = false;
+                var msg = document.createElement("li");
+                msg.innerText = "Nadaj priorytet";
+                ul.appendChild(msg);
+            }
+
+            // sprawdzenie opisu (do 100 znaków)
+
+            if (description.value.length >= 100) {
+                ok = false;
+                var msg = document.createElement("li");
+                msg.innerText = "Opis jest za długi";
+                ul.appendChild(msg);
+            }
+
+
+
+
+
 
             /* ---------------- LocalStorage -------------------- */
 
@@ -140,7 +195,32 @@ document.addEventListener("DOMContentLoaded", function () {
 
             };
 
-            createElement(formObj);
+            if (ok) {
+                // console.log("Walidacja okej");
+                errorMessage.innerHTML = "";
+                errorMessage2.innerHTML = "";
+                createElement(formObj);
+
+                /*zeruję wartość inputu po dodaniu elementu*/
+                title.value = "";
+                date.value = "";
+                priority.value = "";
+                description.value = "";
+            } else {
+                errorMessage.innerHTML = "";
+                errorMessage.appendChild(ul);
+
+                var mobile = window.matchMedia("(max-width: 480px)");
+                if (mobile.matches) {
+                    errorMessage2.innerHTML = "";
+                    errorMessage2.appendChild(ul);
+                }
+
+            }
+
+
+            // mainForm.style.display = "none";
+
 
             /*zeruję wartość inputu po dodaniu elementu*/
             title.value = "";
@@ -162,14 +242,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
         /*dodaję event, który chowa i wyświetla formularz*/
 
-    mainAdd.addEventListener("click", function () {
-        if (mainForm.style.display === "flex") {
-            mainForm.style.display = "none";
-        } else {
-            mainForm.style.display = "flex";
-        }
+        mainAdd.addEventListener("click", function () {
+            if (mainForm.style.display === "flex") {
+                mainForm.style.display = "none";
+            } else {
+                mainForm.style.display = "flex";
+            }
 
-    });
+        });
+
+
 
 
 });
