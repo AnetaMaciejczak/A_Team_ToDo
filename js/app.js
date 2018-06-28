@@ -33,17 +33,19 @@ document.addEventListener("DOMContentLoaded", function () {
             /*tworzę nowe li i poszczególne elementy*/
             /*obiekt li*/
             var newTaskLi = document.createElement("li");
+            var newTaskLiDown = document.createElement("li");
             var newTaskBtnComplete = document.createElement("input");
             newTaskBtnComplete.setAttribute("type", "checkbox");
             var newTaskTitle = document.createElement("span");
             var newTaskDate = document.createElement("span");
             var newTaskPriority = document.createElement("span");
             var newTaskDescription = document.createElement("p");
-            var newTaskDBtnDeleted = document.createElement("button");
+            var newTaskDBtnDeleted = document.createElement("span");
 
             /*dodaję nowym elementom klasy, aby można je było łatwo stylować*/
 
             newTaskLi.classList.add("new-task-li");
+            newTaskLiDown.classList.add("new-task-li-down");
             newTaskBtnComplete.classList.add("new-task-btn-completed");
             newTaskTitle.classList.add("new-task-title");
             newTaskDate.classList.add("new-task-date");
@@ -56,18 +58,23 @@ document.addEventListener("DOMContentLoaded", function () {
             newTaskDate.innerText = taskObj.date;
             newTaskPriority.innerText = taskObj.priority;
             newTaskDescription.innerText = taskObj.description;
-            newTaskDBtnDeleted.innerText = "deleted";
+            newTaskDBtnDeleted.innerText = "";
 
             newTaskLi.appendChild(newTaskBtnComplete);
             newTaskLi.appendChild(newTaskTitle);
             newTaskLi.appendChild(newTaskDate);
             newTaskLi.appendChild(newTaskPriority);
+            // newTaskLi.appendChild(newTaskDescription);
             newTaskLi.appendChild(newTaskDBtnDeleted);
-            newTaskLi.appendChild(newTaskDescription);
+
+            newTaskLiDown.appendChild(newTaskDescription);
 
             /*dodaję nowe li do listy zadań*/
             taskList.appendChild(newTaskLi);
             console.log(newTaskLi);
+
+            taskList.appendChild(newTaskLiDown);
+
             // var counter = 1;
             // localStorage(counter, newTaskLi);
             // counter+=;
@@ -76,6 +83,7 @@ document.addEventListener("DOMContentLoaded", function () {
             /*dodaję do buttona deleted event*/
             newTaskDBtnDeleted.addEventListener("click", function () {
                 taskList.removeChild(newTaskLi);
+                taskList.removeChild(newTaskLiDown);
                 /*dodać removowe local storage*/
             });
 

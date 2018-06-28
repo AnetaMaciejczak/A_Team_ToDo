@@ -172,6 +172,14 @@ body {
         background-repeat: round;
     }
 
+    .main-container {
+        display: flex;
+        flex-direction: column;
+        background-color: rgba(29, 69, 91, 0.4);
+        min-height: 650px;
+        width: 100%;
+    }
+
     /*.main-menu {*/
         /*height: 60px;*/
         /*width: 96%;*/
@@ -204,6 +212,7 @@ body {
         /*justify-content: space-between;*/
     /*}*/
 
+
     /*.main-tusks {*/
         /*display: flex;*/
         /*min-height: 100px;*/
@@ -214,9 +223,21 @@ body {
         /*border-radius: 10px;*/
     /*}*/
 
+    .main-panel-list {
+        list-style: none;
+        margin: 0;
+        padding: 10px 30px;
+        display: flex;
+        justify-content: space-between;
+    }
+
     .main-form {
         flex-direction: column;
         /*align-items: center;*/
+        background-color: rgba(108, 73, 184, 0.5);
+        padding: 0;
+        margin: 2%;
+        border-radius: 10px;
     }
 
     /*.main-form-left,*/
@@ -251,11 +272,48 @@ body {
         color: #717171;
     }
 
+
+    .main-tusks-list {
+        list-style: none;
+        margin: 0 auto;
+        padding: 1px;
+        width: 100%;
+    }
+    .new-task-title {
+        font-weight: 700;
+        font-size: 18px;
+        text-transform: uppercase;
+        width: 70%;
+        text-align: center;
+        overflow: hidden;
+    word-wrap:break-word;
+    }
+    .new-task-date {
+       display: none;
+    }
+    .new-task-priority {
+        display: none;
+    }
+    .new-task-btn-deleted {
+        background-image: url(images/delete-2-16.png);
+        background-repeat: no-repeat;
+        width: 5%;
+        padding-right: 50px;
+    }
+    .new-task-btn-completed {
+        width: 30px;
+        height: 20px;
+    }
+    .main-panel-arrows {
+        display: none;
+    }
+}
+
     /*.main-panel-bin {*/
         /*background: rgba(0, 0, 0, 0);*/
         /*border: 0;*/
     /*}*/
-}
+
 /****************************************************************/
 /*desktop*/
 @media (min-width: 481px) {
@@ -278,6 +336,51 @@ body {
         /*margin-top: 20px;*/
 
     /*}*/
+    .main-container {
+        display: flex;
+        width: 1024px;
+        flex-direction: column;
+        margin: 0 auto;
+    }
+    .new-task-date {
+        font-weight: 600;
+        width: 40%;
+
+    }
+    .new-task-title {
+        font-weight: 700;
+        font-size: 18px;
+        text-transform: uppercase;
+        width: 30%;
+    }
+    .new-task-priority {
+        width: 35%;
+        font-weight: 800;
+        font-size: 18px;
+        align-items: center;
+    }
+.new-task-btn-completed {
+        width: 5%;
+        height: 20px;
+    }
+    .main-menu {
+        display: flex;
+        height: 70px;
+        width: 100%;
+        background-color: rgba(55, 147, 146, 0.6);
+        margin-bottom: 20px;
+        border-radius: 10px;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+
+    }
+    .new-task-btn-deleted {
+        background-image: url(images/delete-2-32.png);
+        background-repeat: no-repeat;
+        width: 5%;
+        padding-right: 50px;
+    }
 
     /*#mainAdd {*/
         /*font-size: 20px;*/
@@ -405,35 +508,89 @@ body {
         max-width: 400px;
         margin-top: 15px;
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
     }
 
     .main-form-row input {
         max-width: 180px;
     }
-
     /*.main-tusks {*/
         /*min-height: 100px;*/
         /*background-color: rgba(108, 73, 184, 0.5);*/
         /*border-radius: 10px;*/
         /*padding: 20px;*/
     /*}*/
+    .main-tusks {
+        min-height: 100px;
+        background-color: rgba(108, 73, 184, 0.3);
+        border-radius: 10px;
+        padding-top: 15px;
+
+    }
 
 }
 
 /*stylowanie nowo pojawiającysh się zadań*/
-.new-task-btn-completed {
-    border: 1px solid red;
-    width: 20px;
-    height: 20px;
+
+.new-task-li {
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+    background-color: rgba(108, 73, 184, 0.3);
+    padding-top: 15px;
+    margin: 0 auto;
+    width: 100%;
+
 }
+.new-task-description {
+    height: 100%;
+    width: 80%;
+    /* border: 2px solid red; */
+    text-align: center;
+    margin: 0 auto;
+    padding-top: 10px;
+    display: inline;
+    overflow: hidden;
+    word-wrap:break-word;
+    max-width:100%;
+    font-size: 25px;
+}
+
 
 
 /* stylowanie tekstu walidacji danych */
 
 .error-message, .error-message2 {
-    color : #ed2553;
+    color: #ed2553;
     list-style: none;
     margin: 0;
     padding: 0;
+}
+.new-task-priority {
+    width: 35%;
+    font-weight: 800;
+    font-size: 18px;
+    align-items: center;
+}
+
+.new-task-btn-deleted {
+    background-image: url(images/delete-2-32.png);
+    background-repeat: no-repeat;
+    width: 5%;
+    padding-right: 50px;
+}
+
+.new-task-li-down {
+    margin-top: 40px;
+
+
+    display: flex;
+  flex-direction: column;
+  height: 20vh;
+}
+.main-tusks-list {
+    list-style: none;
+    margin: 0 auto;
+    padding: 1px;
+    width: 100%;
 }
