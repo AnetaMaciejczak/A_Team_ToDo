@@ -78,6 +78,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
         readLocalStorage();
 
+
+        console.log(localStorage.getItem('tasks'));
+
         /*nadaję event na button dodający zadanie*/
         add.addEventListener("click", function() {
 
@@ -219,6 +222,57 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
 
+        var arrowDate = document.querySelectorAll(".main-panel-arrows")[0];
+        var arrowPriority = document.querySelectorAll(".main-panel-arrows")[1];
+        var list = JSON.parse( localStorage.getItem('tasks') );
+
+        arrowDate.addEventListener("click", function () {
+            var allLi = document.querySelectorAll(".new-task-li");
+            var allLiDown = document.querySelectorAll(".new-task-li-down");
+            var sorted = list.sort(compare);
+
+            function compare(a,b) {
+                if (b.date < a.date)
+                    return -1;
+                if (b.date > a.date)
+                    return 1;
+                return 0;
+            }
+
+            for (var i=0; i<allLi.length; i++) {
+                taskList.removeChild(allLi[i]);
+                taskList.removeChild(allLiDown[i]);
+            }
+
+            for (var i = 0; i < list.length; i++) {
+                createElement(sorted[i]);
+            }
+        });
+
+        arrowPriority.addEventListener("click", function () {
+
+            var allLi = document.querySelectorAll(".new-task-li");
+            var allLiDown = document.querySelectorAll(".new-task-li-down");
+            var sorted = list.sort(compare);
+
+            function compare(a,b) {
+                if (b.priority < a.priority)
+                    return -1;
+                if (b.priority > a.priority)
+                    return 1;
+                return 0;
+            }
+
+            for (var i=0; i<allLi.length; i++) {
+                taskList.removeChild(allLi[i]);
+                taskList.removeChild(allLiDown[i]);
+            }
+
+            for (var i = 0; i < list.length; i++) {
+                createElement(sorted[i]);
+            }
+
+        });
 
 
 
