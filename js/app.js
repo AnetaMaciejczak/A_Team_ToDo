@@ -234,9 +234,9 @@ document.addEventListener("DOMContentLoaded", function () {
             var sorted = list.sort(compare);
 
             function compare(a,b) {
-                if (b.date < a.date)
+                if (a.date < b.date)
                     return -1;
-                if (b.date > a.date)
+                if (a.date > b.date)
                     return 1;
                 return 0;
             }
@@ -258,9 +258,9 @@ document.addEventListener("DOMContentLoaded", function () {
             var sorted = list.sort(compare);
 
             function compare(a,b) {
-                if (b.priority < a.priority)
+                if (a.priority < b.priority)
                     return -1;
-                if (b.priority > a.priority)
+                if (a.priority > b.priority)
                     return 1;
                 return 0;
             }
