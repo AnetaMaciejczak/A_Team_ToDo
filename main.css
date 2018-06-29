@@ -6,10 +6,10 @@
 }
 
 body {
-    background-image: url(images/white-eco-fur-pattern-background-picjumbo-com.jpg);
+    background-image: url(./images/img1.jpg);
     width: 100%;
     background-repeat: round;
-    background-size: cover;
+    /*background-size: cover;*/
     height: 100vh;
 }
 
