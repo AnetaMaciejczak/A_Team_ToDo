@@ -3,14 +3,8 @@ document.addEventListener("DOMContentLoaded", function () {
     /*łapię button dodający zadanie*/
     var add = document.querySelector("#main-form-btn-add");
 
-    /*dodać pętle po obiekcie local storage i wyświelać całą zawartość*/
-
-
-    /*nadaję event na button dodający zadanie*/
-
         var tasks = [];
         var counter = 1;
-
 
         /*łapię listę do której będziemy dodawać li*/
         var taskList = document.querySelector(".main-tusks-list");
@@ -43,7 +37,6 @@ document.addEventListener("DOMContentLoaded", function () {
             var newTaskDBtnDeleted = document.createElement("span");
 
             /*dodaję nowym elementom klasy, aby można je było łatwo stylować*/
-
             newTaskLi.classList.add("new-task-li");
             newTaskLiDown.classList.add("new-task-li-down");
             newTaskBtnComplete.classList.add("new-task-btn-completed");
@@ -75,23 +68,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
             taskList.appendChild(newTaskLiDown);
 
-            // var counter = 1;
-            // localStorage(counter, newTaskLi);
-            // counter+=;
-            /*dodać do local storage*/
-
             /*dodaję do buttona deleted event*/
             newTaskDBtnDeleted.addEventListener("click", function () {
                 taskList.removeChild(newTaskLi);
                 taskList.removeChild(newTaskLiDown);
                 /*dodać removowe local storage*/
             });
-
-
         }
 
         readLocalStorage();
-
 
         /*nadaję event na button dodający zadanie*/
         add.addEventListener("click", function() {
@@ -102,9 +87,7 @@ document.addEventListener("DOMContentLoaded", function () {
             var priority = document.querySelector("#priority");
             var description = document.querySelector("#description");
 
-
             /* walidacja danych */
-
             var errorMessage = document.querySelector(".error-message");
             var errorMessage2 = document.querySelector(".error-message2");
             var ul = document.createElement("ul");
@@ -113,7 +96,6 @@ document.addEventListener("DOMContentLoaded", function () {
             var ok = true;
 
             // sprawdzenie tytulu (czy posiada więcej niż 1 i mniej niż 50 znaków)
-
             if (title.value.length === 0) {
                 ok = false;
                 var msg = document.createElement("li");
@@ -129,7 +111,6 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             // sprawdzenie daty
-
             if (date.value === "") {
                 ok = false;
                 var msg = document.createElement("li");
@@ -138,7 +119,6 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             // sprawdzenie priorytetu
-
             if (priority.value === "") {
                 ok = false;
                 var msg = document.createElement("li");
@@ -147,7 +127,6 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             // sprawdzenie opisu (do 100 znaków)
-
             if (description.value.length >= 100) {
                 ok = false;
                 var msg = document.createElement("li");
@@ -155,13 +134,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 ul.appendChild(msg);
             }
 
-
-
-
-
-
             /* ---------------- LocalStorage -------------------- */
-
 
             function Todo(name) {
                 this.counter = counter;
@@ -173,7 +146,6 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             // Add NewTodo
-
             function addNewTodoWithName(name) {
                 var t = new Todo(name);
                 tasks.push(t);
@@ -186,21 +158,17 @@ document.addEventListener("DOMContentLoaded", function () {
             addNewTodoWithName(name);
 
             // save data to local storage
-
             function saveTasks() {
                 var str = JSON.stringify(tasks);
                 localStorage.setItem("tasks", str);
             }
 
             saveTasks();
-
-
             var formObj = {
                 title: title.value,
                 date: date.value,
                 priority: priority.value,
                 description: description.value,
-
             };
 
             if (ok) {
@@ -223,20 +191,13 @@ document.addEventListener("DOMContentLoaded", function () {
                     errorMessage2.innerHTML = "";
                     errorMessage2.appendChild(ul);
                 }
-
             }
-
-
-            // mainForm.style.display = "none";
-
 
             /*zeruję wartość inputu po dodaniu elementu*/
             title.value = "";
             date.value = "";
             priority.value = "";
             description.value = "";
-
-
         });
 
 
@@ -256,7 +217,6 @@ document.addEventListener("DOMContentLoaded", function () {
             } else {
                 mainForm.style.display = "flex";
             }
-
         });
 
 
