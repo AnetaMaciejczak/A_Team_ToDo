@@ -222,9 +222,11 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
 
-        var arrowDate = document.querySelectorAll(".main-panel-arrows")[0];
-        var arrowPriority = document.querySelectorAll(".main-panel-arrows")[1];
+        var arrowDate = document.querySelectorAll(".main-panel-change-direction")[0];
+        var arrowPriority = document.querySelectorAll(".main-panel-change-direction")[1];
         var list = JSON.parse( localStorage.getItem('tasks') );
+
+        console.log(arrowDate, arrowPriority, list);
 
         arrowDate.addEventListener("click", function () {
             var allLi = document.querySelectorAll(".new-task-li");
