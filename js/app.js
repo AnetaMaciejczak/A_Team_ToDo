@@ -276,6 +276,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
         });
 
+        button.addEventListener("click", function () {
 
+            var buttonDel = document.querySelector('main-panel-bin');
+            localStorage.clear();
+            while (ul.firstChild) {
+                ul.removeChild(ul.firstChild);
+              }
+
+            });
 
 });
