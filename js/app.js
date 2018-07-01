@@ -286,15 +286,13 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
     });
+    //
 
-        button.addEventListener("click", function () {
+    document.querySelector(".main-panel-bin").onclick = deleteAll;
 
-            var buttonDel = document.querySelector('main-panel-bin');
-            localStorage.clear();
-            while (ul.firstChild) {
-                ul.removeChild(ul.firstChild);
-              }
-
-            });
+    function deleteAll() {
+        localStorage.clear();
+        checkStorage();
+    }
 
 });
