@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
         var newTaskLi = document.createElement("li");
         var newTaskLiDown = document.createElement("li");
         var newTaskBtnComplete = document.createElement("input");
-        newTaskBtnComplete.setAttribute("type", "checkbox");
+        newTaskBtnComplete.setAttribute("type", "checkbox", "onclick = myFunction()");
         var newTaskTitle = document.createElement("span");
         var newTaskDate = document.createElement("span");
         var newTaskPriority = document.createElement("span");
@@ -214,11 +214,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /*dodaję event, który chowa i wyświetla formularz*/
 
+
+    // document.querySelector('ul > li).addEventListener('click', function(){......})
+
     mainAdd.addEventListener("click", function () {
         if (mainForm.style.display === "flex") {
             mainForm.style.display = "none";
+
         } else {
             mainForm.style.display = "flex";
+
         }
     });
 
@@ -228,8 +233,10 @@ document.addEventListener("DOMContentLoaded", function () {
     x.addEventListener("click", function () {
         if (y.style.display === "flex") {
             y.style.display = "none";
+
         } else {
             y.style.display = "flex";
+
         }
     });
 
@@ -286,7 +293,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
     });
-    //
+
 
     document.querySelector(".main-panel-bin").onclick = deleteAll;
 
@@ -294,5 +301,16 @@ document.addEventListener("DOMContentLoaded", function () {
         localStorage.clear();
         checkStorage();
     }
+
+    var checkBox = document.querySelector(".new-task-btn-completed");
+    var text = document.querySelector(".new-task-li-down");
+    checkBox.addEventListener("click", function ()  {
+        if (checkBox.checked == true){
+            text.style.textDecoration = "line-through";
+
+        } else {
+            text.style.textDecoration = "none";
+        }
+    })
 
 });
