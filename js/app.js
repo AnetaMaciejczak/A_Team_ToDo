@@ -1,5 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
 
+    /*ustawiam zmianę tła*/
+    
+
     /*łapię button dodający zadanie*/
     var add = document.querySelector("#main-form-btn-add");
 
@@ -64,6 +67,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
         /*dodaję nowe li do listy zadań*/
         taskList.appendChild(newTaskLi);
+
+
+
         console.log(newTaskLi);
 
         taskList.appendChild(newTaskLiDown);
@@ -73,6 +79,8 @@ document.addEventListener("DOMContentLoaded", function () {
             taskList.removeChild(newTaskLi);
             taskList.removeChild(newTaskLiDown);
             /*dodać removowe local storage*/
+
+
         });
     }
 
@@ -228,17 +236,35 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     /*pojawia sie opis*/
-    var x = document.querySelector(".main-tusks-list");
-    var y = document.querySelector(".new-task-li-down");
-    x.addEventListener("click", function () {
-        if (y.style.display === "flex") {
-            y.style.display = "none";
+    // var x = document.querySelector(".main-tusks-list");
+    // var y = document.querySelector(".new-task-li-down");
+    //
+    // console.log(x);
+    // console.log(y);
+    //
+    // x.addEventListener("click", function () {
+    //     if (y.style.display === "flex") {
+    //         y.style.display = "none";
+    //
+    //     } else {
+    //         y.style.display = "flex";
+    //
+    //     }
+    // });
 
-        } else {
-            y.style.display = "flex";
+    var taskTitle = document.querySelectorAll(".new-task-title");
 
-        }
-    });
+    for (var i=0; i<taskTitle.length; i++) {
+        taskTitle[i].addEventListener("click", function () {
+            if (this.parentElement.nextSibling.style.display === "none") {
+                this.parentElement.nextSibling.style.display = "flex"
+            } else {
+                this.parentElement.nextSibling.style.display = "none";
+            }
+        });
+    }
+
+    /*filtry*/
 
     var arrowDate = document.querySelectorAll(".main-panel-change-direction")[0];
     var arrowPriority = document.querySelectorAll(".main-panel-change-direction")[1];
@@ -302,15 +328,51 @@ document.addEventListener("DOMContentLoaded", function () {
         checkStorage();
     }
 
-    var checkBox = document.querySelector(".new-task-btn-completed");
-    var text = document.querySelector(".new-task-li-down");
-    checkBox.addEventListener("click", function ()  {
-        if (checkBox.checked == true){
-            text.style.textDecoration = "line-through";
+    // var checkBox = document.querySelector(".new-task-btn-completed");
+    // var text = document.querySelector(".new-task-li");
+    //
+    //
+    // checkBox.addEventListener("click", function ()  {
+    //     if (checkBox.checked){
+    //         console.log(checkBox);
+    //         console.log(text);
+    //         text.style.textDecoration = "line-through";
+    //
+    //     } else {
+    //         text.style.textDecoration = "none";
+    //     }
+    // })
 
-        } else {
-            text.style.textDecoration = "none";
-        }
-    })
+
+    var checkBoxes = document.querySelectorAll(".new-task-btn-completed");
+
+    for (var i = 0; i < checkBoxes.length; i++) {
+        checkBoxes[i].addEventListener("click", function () {
+            if (this.checked) {
+                this.parentElement.style.textDecoration = "line-through";
+                this.parentElement.classList.add("completed");
+            } else {
+                this.parentElement.style.textDecoration = "none";
+                this.parentElement.classList.remove("completed");
+            }
+        })
+    }
+
+    /*usuwanie zrobionych*/
+
+    var checkedFiltr = document.querySelector(".fa-check");
+    console.log(checkedFiltr);
+
+
+
+        checkedFiltr.addEventListener("click", function () {
+            var completedTasks = document.querySelectorAll(".completed");
+            for (var i=0; i<completedTasks.length; i++) {
+                completedTasks[i].parentElement.removeChild(completedTasks[i].nextSibling);
+                completedTasks[i].parentElement.removeChild(completedTasks[i]);
+
+            }
+        });
+
 
 });
