@@ -349,10 +349,13 @@ document.addEventListener("DOMContentLoaded", function () {
     for (var i = 0; i < checkBoxes.length; i++) {
         checkBoxes[i].addEventListener("click", function () {
             if (this.checked) {
+                console.log("działam");
                 this.parentElement.style.textDecoration = "line-through";
+                this.parentElement.style.color = "gray";
                 this.parentElement.classList.add("completed");
             } else {
                 this.parentElement.style.textDecoration = "none";
+                this.parentElement.style.color = "#292929";
                 this.parentElement.classList.remove("completed");
             }
         })
